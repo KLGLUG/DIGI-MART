@@ -1,0 +1,37 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>REGISTER</ion-title>
+    </ion-navbar>
+
+</ion-header>
+<ion-content padding id="register">
+    <ion-list>
+        <ion-item id="password" style="padding:0px;">
+            <ion-label floating>NAME</ion-label>
+            <ion-input type="Email" #username></ion-input>
+        </ion-item>
+        <ion-item id="password" style="position: relative; padding:0px;">
+            <ion-label floating>Phone no.</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item id="password" style="position: relative; padding:0px;">
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" #password></ion-input>
+        </ion-item>
+        <ion-item id="password" style="position: relative; padding:0px;">
+            <ion-label floating>Re-type Password</ion-label>
+            <ion-input type="password"></ion-input>
+        </ion-item>
+        <ion-item id="password" style="position: relative; padding:0px;">
+            <ion-label floating>Name of the Shop</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <p> Location:{{ location?.coords.latitude}}/ {{ location?.coords.longitude }}</p>
+
+    </ion-list>
+    <div padding>
+        <button block ion-button color="vamsi" style="padding:0px; width: 100%;" medium (click)="registerUser()">Sign Up</button>
+    </div>
+</ion-content>
