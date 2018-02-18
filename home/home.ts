@@ -19,6 +19,9 @@ export class HomePage {
   constructor(public navCtrl: NavController, public navParams: NavParams,private fire:AngularFireAuth,private toast:ToastController) {
     
   }
+  submit(){
+    
+  }
 
   ionViewWillLoad() {
     this.fire.authState.subscribe(user=>{

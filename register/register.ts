@@ -32,10 +32,10 @@ export class RegisterPage {
     console.log('ionViewDidLoad RegisterPage');
   }
   
-  registerUser() {
-    this.fire.auth.createUserWithEmailAndPassword(this.user.value,this.password.value)
-    .then(data=> {
-     console.log('got data',data);
+  async registerUser() {
+    const result=this.fire.auth.createUserWithEmailAndPassword(this.user.value,this.password.value)
+    .then(result=> {
+     console.log('got data',result);
 }
 )
  .catch(error=>{
