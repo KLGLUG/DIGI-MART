@@ -42,7 +42,7 @@ export class RegisterPage {
      console.log('got error',error);
 });
    this.platform.ready().then(()=>{
-    let options={timeout:100,enableHighAccuracy:true,maximumAge:0}
+    let options={timeout:3000,enableHighAccuracy:true,maximumAge:0}
 this.geolocation.getCurrentPosition(options).then((location) => {
   console.log('Fetched the location successfully',location);
   this.location=location;

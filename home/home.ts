@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import {AngularFireAuth} from 'angularfire2/auth';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the HomePage page.
@@ -19,8 +20,8 @@ export class HomePage {
   constructor(public navCtrl: NavController, public navParams: NavParams,private fire:AngularFireAuth,private toast:ToastController) {
     
   }
-  submit(){
-    
+  Logout(){
+    this.navCtrl.setRoot(LoginPage);
   }
 
   ionViewWillLoad() {

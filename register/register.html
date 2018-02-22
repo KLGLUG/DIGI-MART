@@ -12,12 +12,12 @@
             <ion-input type="Email" #username></ion-input>
         </ion-item>
         <ion-item id="password" style="position: relative; padding:0px;">
-            <ion-label floating>Phone no.</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-label floating>Mobile</ion-label>
+            <ion-input type="tel"></ion-input>
         </ion-item>
         <ion-item id="password" style="position: relative; padding:0px;">
             <ion-label floating>Password</ion-label>
-            <ion-input type="password" #password></ion-input>
+            <ion-input type="password" #password minlength="6"></ion-input>
         </ion-item>
         <ion-item id="password" style="position: relative; padding:0px;">
             <ion-label floating>Re-type Password</ion-label>
@@ -27,9 +27,25 @@
             <ion-label floating>Name of the Shop</ion-label>
             <ion-input type="text"></ion-input>
         </ion-item>
+        <div class="spacer" style="width: 50px; height: 20px;"></div>
+        <ion-item style="padding:0px; width:285px;">
+            <ion-label>Shop category</ion-label>
+            <ion-select id="category" multiple="false">
+                <ion-option>Kirana</ion-option>
+                <ion-option>Fancy</ion-option>
+                <ion-option>Medical</ion-option>
+                <ion-option>Floral</ion-option>
+                <ion-option>None</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item id="password" style="position: relative; padding:0px;">
+            <ion-label floating>{{ location?.coords.latitude}}/ {{ location?.coords.longitude }}</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
 
-        <p> Location:{{ location?.coords.latitude}}/ {{ location?.coords.longitude }}</p>
-
+        <!--
+        %<p> Location:{{ location?.coords.latitude}}/ {{ location?.coords.longitude }}</p>
+-->
     </ion-list>
     <div padding>
         <button block ion-button color="vamsi" style="padding:0px; width: 100%;" medium (click)="registerUser()">Sign Up</button>

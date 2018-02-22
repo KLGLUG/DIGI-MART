@@ -5,6 +5,7 @@ import {AngularFireAuth } from 'angularfire2/auth';
 import { HomePage } from '../home/home';
 
 import { RegisterPage } from '../register/register';
+import { TabhPage } from '../tabh/tabh';
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -25,7 +26,7 @@ export class LoginPage {
    login(user:User){
     this.fire.auth.signInWithEmailAndPassword(this.user.email,this.user.password)
     .then(data =>{
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(TabhPage);
    
   })
   
