@@ -1,3 +1,15 @@
+<ion-header>
+
+    <ion-navbar color="vamsi">
+        <ion-title>HEADER</ion-title>
+        <ion-buttons end id="BUTON">
+            <button (click)="Logout()" id="BUTON">
+              <ion-icon name="log-out" color="white"></ion-icon>
+          </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
 <ion-tabs tabsPlacement="top" color="vamsi">
     <ion-tab [root]="homeRoot" tabTitle="Register-items" tabIcon="add"></ion-tab>
     <ion-tab [root]="yourItemsRoot" tabTitle="Your-items" tabIcon="cart"></ion-tab>

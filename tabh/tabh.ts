@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the TabhPage tabs.
@@ -19,7 +20,12 @@ export class TabhPage {
   yourItemsRoot = 'YourItemsPage'
   editHistoryRoot = 'EditHistoryPage'
 
+ 
+
 
   constructor(public navCtrl: NavController) {}
+  Logout(){
+    this.navCtrl.setRoot(LoginPage);
+  }
 
 }
