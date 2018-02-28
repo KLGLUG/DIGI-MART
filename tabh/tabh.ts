@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 
 /**
@@ -23,9 +23,31 @@ export class TabhPage {
  
 
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController,private alertCtrl: AlertController) {}
   Logout(){
-    this.navCtrl.setRoot(LoginPage);
+    let alert = this.alertCtrl.create({
+      title: 'CONFIRM LOGOUT',
+      message: 'Do you want to Logout',
+      buttons: [
+        {
+          text: 'stay',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+            this.navCtrl.setRoot(TabhPage);
+          }
+        },
+        {
+          text: 'Logout',
+          handler: () => {
+            console.log('Buy clicked');
+            this.navCtrl.setRoot(LoginPage);
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
   }
 
-}
+

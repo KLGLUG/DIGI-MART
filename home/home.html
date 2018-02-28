@@ -17,5 +17,199 @@
 
 </ion-header>
 <ion-content>
-    <p>Hi i am vamsi</p>
+    <ion-item id="password" style="padding:10px;">
+        <ion-label floating>Name of Item</ion-label>
+        <ion-input type="text" #itemname></ion-input>
+    </ion-item>
+
+
+    <!--<ion-item *ngFor="let item of listItems">
+    <form [formGroup]="registeritems">
+        <ion-item style="padding:10px;">
+            <ion-label floating>ITEM NAME</ion-label>
+            <ion-input [formControl]="registeritems.controls['nameofitem']" type="text"></ion-input>
+        </ion-item>
+        <ion-item style="padding:10px;">
+            <ion-label floating>AVAILABLE QUANTITY (IN KGS)</ion-label>
+            <ion-input [formControl]="registeritems.controls['cost']" type="text"></ion-input>
+        </ion-item>
+        <ion-item style="padding:10px;">
+            <ion-label floating>PRICE (PER KG)</ion-label>
+            <ion-input [formControl]="registeritems.controls['price']" type="text"></ion-input>
+        </ion-item>
+        <ion-item style="padding:10px;">
+            <ion-label floating>ANY OFEERS (PER KG)</ion-label>
+            <ion-input [formControl]="registeritems.controls['offers']" type="text"></ion-input>
+        </ion-item>
+        <ion-item style="padding:10px;">
+            <ion-label floating>NO OF PIECES</ion-label>
+            <ion-input [formControl]="registeritems.controls['pieces']" type="text"></ion-input>
+        </ion-item>
+        <button ion-button type="submit" (click)="submit()">Submit</button>
+
+    </form>
+-->
+
+
+    <ion-item style="padding:10px;">
+        <ion-label floating>SELECT-BY</ion-label>
+        <ion-select (ionCancel)="cancel()">
+            <ion-option value="Kgs" (ionSelect)="selectItem('Kgs');">Kgs</ion-option>
+            <ion-option value="Pieces" (ionSelect)="selectItem('Pieces');">Pieces</ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-row>
+        <ion-col col-9>
+            <ion-item style="padding:10px;" *ngIf="isKgsSelected">
+                <ion-label floating>AVAILABLE QUANTITY (IN KGS)</ion-label>
+                <ion-input *ngIf="isKgsSelected"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col col-9>
+            <ion-item style="padding-left:10px;" *ngIf="isKgsSelected">
+                <ion-label floating *ngIf="isKgsSelected">PRICE (PER KG)</ion-label>
+                <ion-input *ngIf="isKgsSelected"></ion-input>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <p *ngIf="isPiecesSelected" style="padding:10px;">Note:Weight in Grams</p>
+    <ion-row row-1>
+        <ion-col col-4>
+            <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
+                <ion-input *ngIf="isPiecesSelected"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col col-4>
+            <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
+                <ion-input *ngIf="isPiecesSelected"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col col-4>
+            <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
+                <ion-input *ngIf="isPiecesSelected"></ion-input>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-row row-2>
+        <ion-col col-4>
+            <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
+                <ion-input *ngIf="isPiecesSelected"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col col-4>
+            <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
+                <ion-input *ngIf="isPiecesSelected"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col col-4>
+            <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
+                <ion-input *ngIf="isPiecesSelected"></ion-input>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-row row-3>
+        <ion-col col-4>
+            <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
+                <ion-input *ngIf="isPiecesSelected"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col col-4>
+            <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
+                <ion-input *ngIf="isPiecesSelected"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col col-4>
+            <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
+                <ion-input *ngIf="isPiecesSelected"></ion-input>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-row row-4>
+        <ion-col col-4>
+            <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
+                <ion-input *ngIf="isPiecesSelected"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col col-4>
+            <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
+                <ion-input *ngIf="isPiecesSelected"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col col-4>
+            <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
+                <ion-input *ngIf="isPiecesSelected"></ion-input>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-row row-5>
+        <ion-col col-4>
+            <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
+                <ion-input *ngIf="isPiecesSelected"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col col-4>
+            <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
+                <ion-input *ngIf="isPiecesSelected"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col col-4>
+            <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
+                <ion-input *ngIf="isPiecesSelected"></ion-input>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-row row-6>
+        <ion-col col-4>
+            <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
+                <ion-input *ngIf="isPiecesSelected"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col col-4>
+            <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
+                <ion-input *ngIf="isPiecesSelected"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col col-4>
+            <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
+                <ion-input *ngIf="isPiecesSelected"></ion-input>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+
+
+
+
+
+    <!--
+        <ion-card>
+            <div class="card-title">{{item.name}}</div>
+
+            <button ion-button icon-left clear item-end>
+                        <ion-icon name="done-all"></ion-icon>
+                        SUBMIT
+                </button>
+        </ion-card>
+        </ion-item>
+    -->
+
+
+
 </ion-content>
