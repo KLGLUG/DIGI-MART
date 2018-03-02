@@ -41,10 +41,26 @@ public isPiecesSelected: boolean;
   
   this.registeritems=this.formBuilder.group({
        nameofitem:[''],
-       cost:[''],
+       aq:[''],
        price:[''],
-       offers:[''],
-       pieces:[''],
+       Weight1:[''],
+       pieces1:[''],
+       cost1:[''],
+       Weight2:[''],
+       pieces2:[''],
+       cost2:[''],
+       Weight3:[''],
+       pieces3:[''],
+       cost3:[''],
+       Weight4:[''],
+       pieces4:[''],
+       cost4:[''],
+       Weight5:[''],
+       pieces5:[''],
+       cost5:[''],
+       Weight6:[''],
+       pieces6:[''],
+       cost6:[''],
        
 
   });

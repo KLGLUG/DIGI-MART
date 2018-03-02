@@ -1,0 +1,10 @@
+page-maps {
+    #password {
+        background: color($colors, white);
+        width: 95%;
+    }
+    agm-map {
+        height: 300px;
+        zoom: 100%;
+    }
+}

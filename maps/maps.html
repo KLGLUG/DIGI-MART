@@ -1,0 +1,28 @@
+<!--
+  Generated template for the MapsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>maps</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item id="password" style="position: relative; padding:0px;">
+        <ion-label floating>LOCATION</ion-label>
+        <ion-input type="text" value="{{ location?.coords.latitude}} {{ location?.coords.longitude }}" readonly></ion-input>
+    </ion-item>
+    <div padding>
+        <button block ion-button color="vamsi" style="padding:0px; width: 100%;" medium (click)="mapUser()">LOCATE ME</button>
+    </div>
+    <agm-map [latitude]="  location?.coords.latitude" [longitude]="location?.coords.longitude" [mapTypeId]="'roadmap'">
+        <agm-marker [latitude]=" location?.coords.latitude" [longitude]="location?.coords.longitude" [markerClickable]="true"></agm-marker>
+    </agm-map>
+
+</ion-content>
