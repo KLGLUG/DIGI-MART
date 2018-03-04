@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RegisterPage } from '../register/register'; 
+import { MapsPage} from '../maps/maps';
 
 /**
  * Generated class for the PloginPage page.
@@ -20,6 +21,9 @@ export class PloginPage {
   }
   Register() {
     this.navCtrl.push(RegisterPage);
+}
+Map() {
+  this.navCtrl.setRoot(MapsPage);
 }
   ionViewDidLoad() {
     console.log('ionViewDidLoad PloginPage');

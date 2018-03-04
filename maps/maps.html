@@ -14,15 +14,20 @@
 
 
 <ion-content padding>
+    <!--
     <ion-item id="password" style="position: relative; padding:0px;">
         <ion-label floating>LOCATION</ion-label>
         <ion-input type="text" value="{{ location?.coords.latitude}} {{ location?.coords.longitude }}" readonly></ion-input>
     </ion-item>
+-->
     <div padding>
         <button block ion-button color="vamsi" style="padding:0px; width: 100%;" medium (click)="mapUser()">LOCATE ME</button>
     </div>
-    <agm-map [latitude]="  location?.coords.latitude" [longitude]="location?.coords.longitude" [mapTypeId]="'roadmap'">
-        <agm-marker [latitude]=" location?.coords.latitude" [longitude]="location?.coords.longitude" [markerClickable]="true"></agm-marker>
+
+
+    <agm-map [disableDefaultUI]="true" [latitude]="location?.coords.latitude" [streetViewControl]="true" [longitude]="location?.coords.longitude" [mapTypeId]="'roadmap'" [zoom]="15">
+        <agm-marker [label]="location.title" [latitude]=" location?.coords.latitude" [longitude]="location?.coords.longitude" [markerClickable]="true"></agm-marker>
     </agm-map>
 
+    <div id=map></div>
 </ion-content>

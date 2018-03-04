@@ -63,141 +63,143 @@
             </ion-select>
         </ion-item>
 
-
-        <ion-item style="padding:10px;" *ngIf="isKgsSelected">
-            <ion-label floating>AVAILABLE QUANTITY (IN KGS)</ion-label>
-            <ion-input *ngIf="isKgsSelected" [formControl]="registeritems.controls['aq']"></ion-input>
-        </ion-item>
-
-
-        <ion-item style="padding:10px;" *ngIf="isKgsSelected">
-            <ion-label floating *ngIf="isKgsSelected">PRICE (PER KG)</ion-label>
-            <ion-input *ngIf="isKgsSelected" [formControl]="registeritems.controls['price']"></ion-input>
-        </ion-item>
+        <div class="bg">
+            <ion-item style="padding:10px;" *ngIf="isKgsSelected">
+                <ion-label floating>AVAILABLE QUANTITY (IN KGS)</ion-label>
+                <ion-input *ngIf="isKgsSelected" [formControl]="registeritems.controls['aq']"></ion-input>
+            </ion-item>
 
 
-        <p *ngIf="isPiecesSelected" style="padding:10px;">Note:Weight in Grams</p>
-        <ion-row row-1>
-            <ion-col col-4>
-                <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
-                    <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
-                    <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weight1']"></ion-input>
-                </ion-item>
-            </ion-col>
-            <ion-col col-4>
-                <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
-                    <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
-                    <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['pieces1']"></ion-input>
-                </ion-item>
-            </ion-col>
-            <ion-col col-4>
-                <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
-                    <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
-                    <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['cost1']"></ion-input>
-                </ion-item>
-            </ion-col>
-        </ion-row>
-        <ion-row row-2>
-            <ion-col col-4>
-                <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
-                    <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
-                    <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weight2']"></ion-input>
-                </ion-item>
-            </ion-col>
-            <ion-col col-4>
-                <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
-                    <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
-                    <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['pieces2']"></ion-input>
-                </ion-item>
-            </ion-col>
-            <ion-col col-4>
-                <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
-                    <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
-                    <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['cost2']"></ion-input>
-                </ion-item>
-            </ion-col>
-        </ion-row>
-        <ion-row row-3>
-            <ion-col col-4>
-                <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
-                    <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
-                    <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weight3']"></ion-input>
-                </ion-item>
-            </ion-col>
-            <ion-col col-4>
-                <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
-                    <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
-                    <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['pieces3']"></ion-input>
-                </ion-item>
-            </ion-col>
-            <ion-col col-4>
-                <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
-                    <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
-                    <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['cost3']"></ion-input>
-                </ion-item>
-            </ion-col>
-        </ion-row>
-        <ion-row row-4>
-            <ion-col col-4>
-                <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
-                    <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
-                    <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weight4']"></ion-input>
-                </ion-item>
-            </ion-col>
-            <ion-col col-4>
-                <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
-                    <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
-                    <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['pieces4']"></ion-input>
-                </ion-item>
-            </ion-col>
-            <ion-col col-4>
-                <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
-                    <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
-                    <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['cost4']"></ion-input>
-                </ion-item>
-            </ion-col>
-        </ion-row>
-        <ion-row row-5>
-            <ion-col col-4>
-                <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
-                    <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
-                    <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weight5']"></ion-input>
-                </ion-item>
-            </ion-col>
-            <ion-col col-4>
-                <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
-                    <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
-                    <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['pieces5']"></ion-input>
-                </ion-item>
-            </ion-col>
-            <ion-col col-4>
-                <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
-                    <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
-                    <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['cost5']"></ion-input>
-                </ion-item>
-            </ion-col>
-        </ion-row>
-        <ion-row row-6>
-            <ion-col col-4>
-                <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
-                    <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
-                    <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weight6']"></ion-input>
-                </ion-item>
-            </ion-col>
-            <ion-col col-4>
-                <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
-                    <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
-                    <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['pieces6']"></ion-input>
-                </ion-item>
-            </ion-col>
-            <ion-col col-4>
-                <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
-                    <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
-                    <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['cost6']"></ion-input>
-                </ion-item>
-            </ion-col>
-        </ion-row>
+            <ion-item style="padding:10px;" *ngIf="isKgsSelected">
+                <ion-label floating *ngIf="isKgsSelected">PRICE (PER KG)</ion-label>
+                <ion-input *ngIf="isKgsSelected" [formControl]="registeritems.controls['price']"></ion-input>
+            </ion-item>
+
+
+            <p *ngIf="isPiecesSelected" style="padding:10px;">Note:Weight in Grams</p>
+            <ion-row row-1>
+                <ion-col col-4>
+                    <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                        <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weight1']"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                        <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['pieces1']"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                        <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['cost1']"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row row-2>
+                <ion-col col-4>
+                    <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                        <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weight2']"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                        <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['pieces2']"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                        <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['cost2']"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row row-3>
+                <ion-col col-4>
+                    <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                        <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weight3']"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                        <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['pieces3']"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                        <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['cost3']"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row row-4>
+                <ion-col col-4>
+                    <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                        <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weight4']"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                        <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['pieces4']"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                        <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['cost4']"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row row-5>
+                <ion-col col-4>
+                    <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                        <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weight5']"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                        <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['pieces5']"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                        <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['cost5']"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row row-6>
+                <ion-col col-4>
+                    <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                        <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weight6']"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                        <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['pieces6']"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
+                        <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['cost6']"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </div>
     </form>
+
     <div>
         <button ion-button block color="vamsi" medium (click)="submit()">Register</button>
     </div>
