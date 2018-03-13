@@ -4,10 +4,15 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-header color="vamsi">
 
-    <ion-navbar>
-        <ion-title>maps</ion-title>
+    <ion-navbar color="vamsi">
+        <ion-title>TRACING..</ion-title>
+        <ion-buttons end id="BUTON">
+            <button ion-button large (click)="mapUser()" id="BUTON">
+              <ion-icon large name="locate" color="white"></ion-icon>
+          </button>
+        </ion-buttons>
     </ion-navbar>
 
 </ion-header>
@@ -19,15 +24,15 @@
         <ion-label floating>LOCATION</ion-label>
         <ion-input type="text" value="{{ location?.coords.latitude}} {{ location?.coords.longitude }}" readonly></ion-input>
     </ion-item>
--->
+
     <div padding>
-        <button block ion-button color="vamsi" style="padding:0px; width: 100%;" medium (click)="mapUser()">LOCATE ME</button>
+        <button outline ion-button id="vamsi" color="light" style=" z-index:2; padding:0px; width: 100%;" [disabled]="disabled" small (click)="mapUser()">LOCATE ME</button>
     </div>
 
-
+-->
     <agm-map [disableDefaultUI]="true" [latitude]="location?.coords.latitude" [streetViewControl]="true" [longitude]="location?.coords.longitude" [mapTypeId]="'roadmap'" [zoom]="15">
-        <agm-marker [label]="location.title" [latitude]=" location?.coords.latitude" [longitude]="location?.coords.longitude" [markerClickable]="true"></agm-marker>
+        <agm-marker [label]="options" [latitude]="location?.coords.latitude" [longitude]="location?.coords.longitude" [markerClickable]="true"></agm-marker>
     </agm-map>
 
-    <div id=map></div>
+    <div #map id=map style="height:100%;"></div>
 </ion-content>

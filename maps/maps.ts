@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams ,Platform} from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { AgmCoreModule } from '@agm/core';
+import { variable } from '@angular/compiler/src/output/output_ast';
+import {GoogleMap,GoogleMaps,LatLng,CameraPosition,GoogleMapsEvent} from '@ionic-native/google-maps';
+
 /*import {
   GoogleMaps,
   GoogleMap,
@@ -27,15 +30,55 @@ import { AgmCoreModule } from '@agm/core';
 })
 export class MapsPage {
   location:any;
+  public locatio:any;
+  disabled:boolean;
+  position:any;
+  map: GoogleMap;
+  
+  
+  
   
  // map: GoogleMap;
   
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private geolocation: Geolocation,public platform:Platform) {
-    
+  constructor(public navCtrl: NavController, public googleMaps:GoogleMaps,public navParams: NavParams,private geolocation: Geolocation,public platform:Platform) {
+    this.locatio=[{
+       title:'V'
+    }];
+    var disabled = false;
   }
-  
+  /*
+  ngAfterViewInit(){
+    this.platform.ready().then(() => {
+    this.loadMap();
+    });
+  }
+  loadMap(){
+    //let element = document.getElementById('map');
+    this.map = GoogleMaps.create('map_canvas');
+    //let map:GoogleMap=this.googleMaps.create(element,{});
+    let latlng=new LatLng(40.7128,74.0059);
 
+    this.map.one(GoogleMapsEvent.MAP_READY).then(()=>{
+      let position:CameraPosition<LatLng>={
+        target:latlng,
+        zoom:10,
+        tilt:30
+      }
+      this.map.moveCamera(position);
+    })
+
+  }*/
+  
+ options={
+  color: '#ASDF96',
+  fontFamily: '',
+  fontSize: '14px',
+  fontWeight: 'bold',
+   text:'S',
+ }
+
+  
   /*loadMap() {
 
     let mapOptions: GoogleMapOptions = {
@@ -80,6 +123,7 @@ export class MapsPage {
 this.geolocation.getCurrentPosition(options).then((location) => {
   console.log('Fetched the location successfully',location);
   this.location=location;
+    this.disabled=true;
 }).catch((error) => {
   console.log('Error getting location', error);
 });

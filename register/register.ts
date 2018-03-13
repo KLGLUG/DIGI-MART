@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams ,Platform} from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Component ,ViewChild } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation';
+import { FormBuilder,FormGroup} from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 
@@ -23,15 +25,54 @@ export class RegisterPage {
    @ViewChild('username') user;
    @ViewChild('password') password;
    location:any;
+   public register:FormGroup;
+   private baseURI : string  = "http://localhost/vamsi/register.php";
 
-  constructor(private fire: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,private geolocation: Geolocation,public platform:Platform) {
+  constructor(private fire: AngularFireAuth, public http: HttpClient,public formBuilder:FormBuilder,public navCtrl: NavController, public navParams: NavParams,private geolocation: Geolocation,public platform:Platform) {
+    this.register=this.formBuilder.group({
+      name:[''],
+      mobile:[''],
+      password:[''],
+      retypepassword:[''],
+      category:[''],
+      nameofshop:[''],
+      location:[''],
+    });
   }
   
+  createEntry(name : string, mobile : number,password:string,retypepassword:string,nameofshop:string,category:string,location:string) : void
+  {
+     let headers 	: any		= new HttpHeaders({ 'Content-Type': 'application/json' }),
+         options 	: any		= { "key" : "create", "NAME" : name, "MOBILE" : mobile,"PASSWORD":password,"RETYPEPASSWORD":retypepassword,"CATEGORY":category,"SHOPNAME":nameofshop,"LOCATION":location },
+         url       : any      	= this.baseURI ;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
+     this.http.post(url, JSON.stringify(options), headers)
+     .subscribe((data : any) =>
+     {
+        // If the request was successful notify the user
+     
+        console.log(`Congratulations the ${name} was successfully added`);
+     },
+     (error : any) =>
+     {
+        console.log('Something went wrong!');
+     });
   }
-  
+  saveEntry() : void
+  {
+     let name          : string = this.register.controls["name"].value,
+         mobile   : number   = this.register.controls["mobile"].value,
+         password         : string = this.register.controls["password"].value,
+         retypepassword:string=this.register.controls["retypepassword"].value,
+         nameofshop         : string = this.register.controls["nameofshop"].value,
+         category:string=this.register.controls["category"].value,
+        location         : string= this.register.controls["location"].value;
+
+    
+        this.createEntry(name,mobile,password,retypepassword,nameofshop,category,location);
+  }
+
+ 
   async registerUser() {
     const result=this.fire.auth.createUserWithEmailAndPassword(this.user.value,this.password.value)
     .then(result=> {
@@ -50,5 +91,9 @@ this.geolocation.getCurrentPosition(options).then((location) => {
   console.log('Error getting location', error);
 });
 });
+
+}
+ionViewDidLoad() {
+  console.log('ionViewDidLoad RegisterPage');
 }
 }

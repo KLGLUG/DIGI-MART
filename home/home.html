@@ -7,7 +7,8 @@
 <ion-header>
 
     <ion-navbar color="vamsi">
-        <ion-title>Home</ion-title>
+        <ion-title>HOME</ion-title>
+        <span style="color:rgb(255, 255, 255)">{{this.record}}</span>
         <ion-buttons end id="BUTON">
             <button (click)="Logout()" id="BUTON">
                 <ion-icon name="log-out" color="white"></ion-icon>
@@ -50,6 +51,8 @@
 
 
     <form [formGroup]="registeritems">
+
+
         <ion-item id="password" style="padding:10px;">
             <ion-label floating>Name of Item</ion-label>
             <ion-input type="text" #itemname [formControl]="registeritems.controls['nameofitem']"></ion-input>
@@ -81,19 +84,19 @@
                 <ion-col col-4>
                     <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
                         <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
-                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weight1']"></ion-input>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weighta']"></ion-input>
                     </ion-item>
                 </ion-col>
                 <ion-col col-4>
                     <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
                         <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
-                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['pieces1']"></ion-input>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['piecesa']"></ion-input>
                     </ion-item>
                 </ion-col>
                 <ion-col col-4>
                     <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
                         <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
-                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['cost1']"></ion-input>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['costa']"></ion-input>
                     </ion-item>
                 </ion-col>
             </ion-row>
@@ -101,19 +104,19 @@
                 <ion-col col-4>
                     <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
                         <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
-                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weight2']"></ion-input>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weightb']"></ion-input>
                     </ion-item>
                 </ion-col>
                 <ion-col col-4>
                     <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
                         <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
-                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['pieces2']"></ion-input>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['piecesb']"></ion-input>
                     </ion-item>
                 </ion-col>
                 <ion-col col-4>
                     <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
                         <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
-                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['cost2']"></ion-input>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['costb']"></ion-input>
                     </ion-item>
                 </ion-col>
             </ion-row>
@@ -121,19 +124,19 @@
                 <ion-col col-4>
                     <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
                         <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
-                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weight3']"></ion-input>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weightc']"></ion-input>
                     </ion-item>
                 </ion-col>
                 <ion-col col-4>
                     <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
                         <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
-                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['pieces3']"></ion-input>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['piecesc']"></ion-input>
                     </ion-item>
                 </ion-col>
                 <ion-col col-4>
                     <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
                         <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
-                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['cost3']"></ion-input>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['costc']"></ion-input>
                     </ion-item>
                 </ion-col>
             </ion-row>
@@ -141,19 +144,19 @@
                 <ion-col col-4>
                     <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
                         <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
-                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weight4']"></ion-input>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weightd']"></ion-input>
                     </ion-item>
                 </ion-col>
                 <ion-col col-4>
                     <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
                         <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
-                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['pieces4']"></ion-input>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['piecesd']"></ion-input>
                     </ion-item>
                 </ion-col>
                 <ion-col col-4>
                     <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
                         <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
-                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['cost4']"></ion-input>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['costd']"></ion-input>
                     </ion-item>
                 </ion-col>
             </ion-row>
@@ -161,19 +164,19 @@
                 <ion-col col-4>
                     <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
                         <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
-                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weight5']"></ion-input>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weighte']"></ion-input>
                     </ion-item>
                 </ion-col>
                 <ion-col col-4>
                     <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
                         <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
-                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['pieces5']"></ion-input>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['piecese']"></ion-input>
                     </ion-item>
                 </ion-col>
                 <ion-col col-4>
                     <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
                         <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
-                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['cost5']"></ion-input>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['coste']"></ion-input>
                     </ion-item>
                 </ion-col>
             </ion-row>
@@ -181,19 +184,19 @@
                 <ion-col col-4>
                     <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
                         <ion-label floating *ngIf="isPiecesSelected">Weight</ion-label>
-                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weight6']"></ion-input>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['Weightf']"></ion-input>
                     </ion-item>
                 </ion-col>
                 <ion-col col-4>
                     <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
                         <ion-label floating *ngIf="isPiecesSelected">pieces</ion-label>
-                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['pieces6']"></ion-input>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['piecesf']"></ion-input>
                     </ion-item>
                 </ion-col>
                 <ion-col col-4>
                     <ion-item style="padding:0px;" *ngIf="isPiecesSelected">
                         <ion-label floating *ngIf="isPiecesSelected">cost</ion-label>
-                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['cost6']"></ion-input>
+                        <ion-input *ngIf="isPiecesSelected" [formControl]="registeritems.controls['costf']"></ion-input>
                     </ion-item>
                 </ion-col>
             </ion-row>
@@ -201,12 +204,11 @@
     </form>
 
     <div>
-        <button ion-button block color="vamsi" medium (click)="submit()">Register</button>
+        <button ion-button block color="vamsi" medium (click)="saveEntry()">Register</button>
     </div>
 
-
-
     <!--
+    
         <ion-card>
             <div class="card-title">{{item.name}}</div>
 
