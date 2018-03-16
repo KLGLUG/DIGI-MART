@@ -27,9 +27,10 @@ export class LoginPage {
    login(user:User){
     this.fire.auth.signInWithEmailAndPassword(this.user.email,this.user.password)
     .then(data =>{
-    this.navCtrl.setRoot(TabhPage);
+    this.navCtrl.setRoot(TabhPage,{emails:this.user.email});
     console.log(this.user.email);
-    this.navCtrl.push(HomePage,{emails:this.user.email});
+    //this.navCtrl.push(HomePage,{emails:this.user.email});
+    //this.navCtrl.push(TabhPage,{emails:this.user.email});
   })
   
     .catch(error=>{

@@ -37,7 +37,6 @@ record:any;
 
   constructor(public navCtrl: NavController,private formBuilder:FormBuilder, public http: HttpClient,public navParams: NavParams,private fire:AngularFireAuth,private toast:ToastController) {
     this.record=navParams.get('emails')
-    console.log(this.record);
     /*this.listItems=[{
     
     }];*/
@@ -64,6 +63,7 @@ record:any;
        Weightf:[''],
        piecesf:[''],
        costf:[''],
+       emailf:['this.record'],
        
 
   });
@@ -73,10 +73,10 @@ record:any;
     this.registeritems.reset();
   }
 
-  createEntry(EMAIL : string,weighta:number,piecesa:number,costa:number,weightb:number,piecesb:number,costb:number,weightc:number,piecesc:number,costc:number,weightd:number,piecesd:number,costd:number,weighte:number,piecese:number,coste:number,weightf:number,piecesf:number,costf:number) : void
+  createEntry(EMAIL : string,weighta:number,piecesa:number,costa:number,weightb:number,piecesb:number,costb:number,weightc:number,piecesc:number,costc:number,weightd:number,piecesd:number,costd:number,weighte:number,piecese:number,coste:number,weightf:number,piecesf:number,costf:number,emailf:string) : void
   {
      let headers 	: any		= new HttpHeaders({ 'Content-Type': 'application/json' }),
-         options 	: any		= { "key" : "create", "EMAIL" : EMAIL, "weighta" : weighta,"piecesa":piecesa,"costa":costa, "weightb" : weightb,"piecesb":piecesb,"costb":costb, "weightc" : weightc,"piecesc":piecesc,"costc":costc, "weightd" : weightd,"piecesd":piecesd,"costd":costd, "weighte" : weighte,"piecese":piecese,"coste":coste, "weightf" : weightf,"piecesf":piecesf,"costf":costf },
+         options 	: any		= { "key" : "create", "EMAIL" : EMAIL, "weighta" : weighta,"piecesa":piecesa,"costa":costa, "weightb" : weightb,"piecesb":piecesb,"costb":costb, "weightc" : weightc,"piecesc":piecesc,"costc":costc, "weightd" : weightd,"piecesd":piecesd,"costd":costd, "weighte" : weighte,"piecese":piecese,"coste":coste, "weightf" : weightf,"piecesf":piecesf,"costf":costf,"emailf":emailf },
          url       : any      	= this.baseURI ;
 
      this.http.post(url, JSON.stringify(options), headers)
@@ -112,10 +112,11 @@ record:any;
          coste:number=this.registeritems.controls["coste"].value,
          weightf   : number   = this.registeritems.controls["Weightf"].value,
          piecesf         : number = this.registeritems.controls["piecesf"].value,
-         costf:number=this.registeritems.controls["costf"].value
+         costf:number=this.registeritems.controls["costf"].value,
+         emailf:string=this.registeritems.controls["emailf"].value
 
     
-        this.createEntry(EMAIL,weighta,piecesa,costa,weightb,piecesb,costb,weightc,piecesc,costc,weightd,piecesd,costd,weighte,piecese,coste,weightf,piecesf,costf);
+        this.createEntry(EMAIL,weighta,piecesa,costa,weightb,piecesb,costb,weightc,piecesc,costc,weightd,piecesd,costd,weighte,piecese,coste,weightf,piecesf,costf,emailf);
   }
  /*public additem():void{
      this.listItems.push({

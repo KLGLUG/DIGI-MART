@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController,NavParams, AlertController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 
 /**
@@ -19,11 +19,13 @@ export class TabhPage {
   homeRoot = 'HomePage'
   yourItemsRoot = 'YourItemsPage'
   editHistoryRoot = 'EditHistoryPage'
-
+ record:any;
  
 
 
-  constructor(public navCtrl: NavController,private alertCtrl: AlertController) {}
+  constructor(public navCtrl: NavController,private alertCtrl: AlertController,public navParams: NavParams) {
+    this.record=navParams.get('emails')
+  }
   Logout(){
     let alert = this.alertCtrl.create({
       title: 'CONFIRM LOGOUT',

@@ -5,6 +5,8 @@ import { Component ,ViewChild } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation';
 import { FormBuilder,FormGroup} from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
+
 
 
 
@@ -27,8 +29,9 @@ export class RegisterPage {
    location:any;
    public register:FormGroup;
    private baseURI : string  = "http://localhost/vamsi/register.php";
-
-  constructor(private fire: AngularFireAuth, public http: HttpClient,public formBuilder:FormBuilder,public navCtrl: NavController, public navParams: NavParams,private geolocation: Geolocation,public platform:Platform) {
+   latitude:any;
+   longitude:any;
+  constructor(private fire: AngularFireAuth,private nativeGeocoder: NativeGeocoder, public http: HttpClient,public formBuilder:FormBuilder,public navCtrl: NavController, public navParams: NavParams,private geolocation: Geolocation,public platform:Platform) {
     this.register=this.formBuilder.group({
       name:[''],
       mobile:[''],
@@ -82,11 +85,25 @@ export class RegisterPage {
  .catch(error=>{
      console.log('got error',error);
 });
+this.platform.ready().then(()=>{
+this.nativeGeocoder.reverseGeocode(this.latitude,this.longitude)
+  .then((result: NativeGeocoderReverseResult) => {
+    console.log(JSON.stringify(result));
+  })
+  .catch((error: any) =>{
+    console.log(error);
+
+  });
+});
+
+
    this.platform.ready().then(()=>{
     let options={timeout:3000,enableHighAccuracy:true,maximumAge:0}
 this.geolocation.getCurrentPosition(options).then((location) => {
   console.log('Fetched the location successfully',location);
   this.location=location;
+  this.latitude=location.coords.latitude;
+  this.longitude=location.coords.latitude;
 }).catch((error) => {
   console.log('Error getting location', error);
 });
