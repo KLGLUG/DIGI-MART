@@ -38,16 +38,18 @@
          $name 		     = filter_var($obj->name, FILTER_SANITIZE_STRING, FILTER_FLAG_ENCODE_LOW);
          $weight	  = filter_var($obj->weight, FILTER_SANITIZE_NUMBER_INT);
           $price	  = filter_var($obj->price, FILTER_SANITIZE_NUMBER_INT);
+         $emailf	  = filter_var($obj->emailf, FILTER_SANITIZE_NUMBER_INT);
           
 
 
          // Attempt to run PDO prepared statement
          try {
-            $sql 	= "INSERT INTO itemregisterk(name,weight,price) VALUES(:name,:weight,:price)";
+            $sql 	= "INSERT INTO itemregisterk(name,weight,price,emailf) VALUES(:name,:weight,:price,:emailf)";
             $stmt 	= $pdo->prepare($sql);
             $stmt->bindParam(':name', $name, PDO::PARAM_STR);
             $stmt->bindParam(':weight', $weight, PDO::PARAM_INT);
             $stmt->bindParam(':price', $price, PDO::PARAM_INT);
+            $stmt->bindParam(':emailf', $emailf, PDO::PARAM_INT); 
             $stmt->execute();
 
             echo json_encode(array('message' => 'Congratulations the record ' . $name . ' was added to the database'));

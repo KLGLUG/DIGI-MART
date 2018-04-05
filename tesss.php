@@ -35,32 +35,31 @@
       case "create":
 
          // Sanitise URL supplied values
-         $NAME 		     = filter_var($obj->NAME, FILTER_SANITIZE_STRING, FILTER_FLAG_ENCODE_LOW);
-         $MOBILE	  = filter_var($obj->MOBILE, FILTER_SANITIZE_NUMBER_INT);
-          $PASSWORD    = filter_var($obj->PASSWORD, FILTER_SANITIZE_STRING, FILTER_FLAG_ENCODE_LOW);
-          $RETYPEPASSWORD    = filter_var($obj->RETYPEPASSWORD, FILTER_SANITIZE_STRING, FILTER_FLAG_ENCODE_LOW);
-         $SHOPNAME	  = filter_var($obj->SHOPNAME, FILTER_SANITIZE_STRING, FILTER_FLAG_ENCODE_LOW);
-          $CATEGORY		     = filter_var($obj->CATEGORY, FILTER_SANITIZE_STRING, FILTER_FLAG_ENCODE_LOW);
+         $rad = 1; // radius of bounding circle in kilometers
+
+    $R = 6371;
         
          $latitude=filter_var($obj->latitude, FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
           $longitude=filter_var($obj->longitude, FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
+           $maxLat = $latitude + rad2deg($rad/$R);
+           $minLat = $latitude - rad2deg($rad/$R);
+           $maxLon = $longitude + rad2deg(asin($rad/$R) / cos(deg2rad($latitude)));
+           $minLon = $longitude - rad2deg(asin($rad/$R) / cos(deg2rad($latitude)));
+
 
          // Attempt to run PDO prepared statement
          try {
-            $sql 	= "INSERT INTO register(NAME, MOBILE,PASSWORD,RETYPEPASSWORD,SHOPNAME,CATEGORY,LATITUDE,LONGITUDE) VALUES(:NAME, :MOBILE,:PASSWORD,:RETYPEPASSWORD,:SHOPNAME,:CATEGORY,:LATITUDE,:LONGITUDE)";
+            $sql 	= "INSERT INTO locate(maxlat,minlat,maxlon,minlon) VALUES(:LATITUDE,:LONGITUDE,:maxlon,:minlon)";
             $stmt 	= $pdo->prepare($sql);
-            $stmt->bindParam(':NAME', $NAME, PDO::PARAM_STR);
-            $stmt->bindParam(':MOBILE', $MOBILE, PDO::PARAM_INT);
-            $stmt->bindParam(':PASSWORD', $PASSWORD, PDO::PARAM_STR);
-            $stmt->bindParam(':RETYPEPASSWORD', $RETYPEPASSWORD, PDO::PARAM_STR);
-            $stmt->bindParam(':SHOPNAME', $SHOPNAME, PDO::PARAM_STR);
-            $stmt->bindParam(':CATEGORY', $CATEGORY, PDO::PARAM_STR);
+        
            
-            $stmt->bindParam(':LATITUDE', $latitude);
-            $stmt->bindParam(':LONGITUDE', $longitude);
+            $stmt->bindParam(':LATITUDE', $maxLat);
+            $stmt->bindParam(':LONGITUDE', $minLat);
+            $stmt->bindParam(':maxlon', $maxLon);
+            $stmt->bindParam(':minlon', $minLon);
             $stmt->execute();
 
-            echo json_encode(array('message' => 'Congratulations the record ' . $NAME . ' was added to the database'));
+            echo json_encode(array('message' => 'Congratulations the record  was added to the database'));
          }
          // Catch any errors in running the prepared statement
          catch(PDOException $e)
