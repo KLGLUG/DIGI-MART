@@ -43,13 +43,15 @@ switch($key)
  if ($row  = $stmt->fetch(PDO::FETCH_OBJ))
    {
          
-        $stmt2=$pdo->query("INSERT INTO productbuying(item) SELECT EMAIL FROM itemregister WHERE EMAIL= '$EMAIL' AND emailf IN (SELECT mailid FROM productpurchase) "); 
+       // $stmt2=$pdo->query("INSERT INTO productbuying(item) SELECT EMAIL FROM itemregister WHERE EMAIL= '$EMAIL' AND emailf IN (SELECT mailid FROM productpurchase) "); 
      
-          $stmt2=$pdo->query("INSERT INTO productbuying(shopname) SELECT SHOPNAME FROM register WHERE NAME IN (select mailid FROM productpurchase) "); 
+         //$stmt3=$pdo->query("INSERT INTO productbuying(shopname) SELECT SHOPNAME FROM register WHERE NAME IN (select mailid FROM productpurchase) "); 
  
 
-        
-     
+       $stmt3=$pdo->query(" INSERT INTO productbuying(item,shopname) SELECT EMAIL,SHOPNAME from itemregister,register WHERE EMAIL='$EMAIL' AND emailf in(select mailid from productpurchase) AND NAME in(select mailid from productpurchase)");
+
+    $stmt4=$pdo->query("TRUNCATE TABLE productpurchase");
+     $stmt5=$pdo->query("TRUNCATE TABLE locate");
    }
 
     else
